@@ -8,12 +8,19 @@ Gemaakt door:
 ### Beschrijving
 *
 deel scherm
+
 onder speler
+
 kogel recht omhoog
+
 boven speler
+
 kogel recht naar beneden
+
 geraakt door kogel>hp omlaag
+
 hp op scherm
+
 hp=0=game over*
 
 ## Mijn planning

@@ -15,5 +15,5 @@
 html, body {
   /* verwijder marge tussen canvas en rand van window
    */ 
-  margin: 0px;
+  margin:50px;
 }

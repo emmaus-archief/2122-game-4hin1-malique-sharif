@@ -58,7 +58,7 @@ var tekenAlles = function () {
 
   // speler
   fill("white");
-  rect(spelerX - 25, spelerY - 25, 50, 50);
+  rect(spelerX - 25, spelerY - 25, 40, 40);
   fill("black");
   ellipse(spelerX, spelerY, 10, 10);
 
@@ -86,10 +86,13 @@ var checkGameOver = function () {
  */
 function setup() {
   // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
-  createCanvas(1280, 720);
+  createCanvas(800, 720);
 
   // Kleur de achtergrond blauw, zodat je het kunt zien
   background('blue');
+  rect(-10,290,1350,150)
+  
+  
 }
 
 /**
