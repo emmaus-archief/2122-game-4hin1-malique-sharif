@@ -10,6 +10,9 @@ Gemaakt door:
 deel scherm
 
 onder speler
+const KEY_UP = 87
+keyIsDown
+keyCode
 
 kogel recht omhoog
 
