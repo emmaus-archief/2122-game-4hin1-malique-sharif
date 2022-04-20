@@ -46,6 +46,24 @@ var beweegAlles = function () {
     if (keyIsDown (KEY_D)) {
       spelerX = spelerX + snelheid_speler
     }
+
+  /* grond/plafond */
+if (spelerY > 694) {
+  spelerY = 694
+}
+
+if (spelerY < 25) {
+  spelerY = 25
+}
+
+  /* muren */
+if (spelerX > 1255) {
+  spelerX = 1255
+}
+  
+if (spelerX < 25) {
+  spelerX = 25
+}
   // vijand
 
   // kogel
@@ -78,7 +96,7 @@ var tekenAlles = function () {
 
   // speler
   fill("white");
-  rect(spelerX - 25, spelerY - 25, 40, 40);
+  rect(spelerX - 25, spelerY - 25, 50, 50);
   fill("black");
   ellipse(spelerX, spelerY, 10, 10);
 
