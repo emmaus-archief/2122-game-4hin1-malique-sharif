@@ -17,6 +17,7 @@ const KEY_W = 87
 const KEY_A = 65
 const KEY_S = 83
 const KEY_D = 68
+var snelheid_speler = 10
 
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
@@ -30,8 +31,21 @@ var spelerY = 600; // y-positie van speler
  */
 var beweegAlles = function () {
   // speler
-    if
-}             
+    if (keyIsDown (KEY_A)) {
+      spelerX = spelerX - snelheid_speler
+    }
+
+    if (keyIsDown (KEY_W)) {
+      spelerY = spelerY - snelheid_speler
+    }
+
+    if (keyIsDown (KEY_S)) {
+      spelerY = spelerY + snelheid_speler
+    }
+  
+    if (keyIsDown (KEY_D)) {
+      spelerX = spelerX + snelheid_speler
+    }
   // vijand
 
   // kogel
@@ -92,7 +106,7 @@ var checkGameOver = function () {
  */
 function setup() {
   // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
-  createCanvas(800, 720);
+  createCanvas(1280, 720);
 
   // Kleur de achtergrond blauw, zodat je het kunt zien
   background('blue');
