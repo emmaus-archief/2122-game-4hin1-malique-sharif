@@ -18,13 +18,12 @@ const KEY_A = 65
 const KEY_S = 83
 const KEY_D = 68
 var snelheid_speler = 10
-  
-var speler1X = 600; // x-positie van speler
-var speler1Y = 600; // y-positie van speler
 
-var speler2X = 600; // x-positie van speler2
-var speler2Y = 300; // y-positie van speler2
+var spelerX = 600; // x-positie van speler
+var spelerY = 600; // y-positie van speler
 
+var speler2X = 600;
+var speler2Y = 300;
 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
@@ -36,54 +35,39 @@ var speler2Y = 300; // y-positie van speler2
 var beweegAlles = function () {
   // speler
     if (keyIsDown (KEY_A)) {
-      speler1X = speler1X - snelheid_speler
+      spelerX = spelerX - snelheid_speler
     }
 
     if (keyIsDown (KEY_W)) {
-      speler1Y = speler1Y - snelheid_speler
+      spelerY = spelerY - snelheid_speler
     }
 
     if (keyIsDown (KEY_S)) {
-      speler1Y = speler1Y + snelheid_speler
+      spelerY = spelerY + snelheid_speler
     }
   
     if (keyIsDown (KEY_D)) {
-      speler1X = speler1X + snelheid_speler
+      spelerX = spelerX + snelheid_speler
     }
 
   /* grond/plafond */
-if (speler1Y > 694) {
-  speler1Y = 694
+if (spelerY > 694) {
+  spelerY = 694
 }
 
-if (speler1Y < 25) {
-  speler1Y = 25
+if (spelerY < 25) {
+  spelerY = 25
 }
 
   /* muren */
-if (speler1X > 1255) {
-  speler1X = 1255
+if (spelerX > 1255) {
+  spelerX = 1255
 }
   
-if (speler1X < 25) {
-  speler1X = 25
+if (spelerX < 25) {
+  spelerX = 25
 }
   // vijand
-  if (speler2Y > 694) {
-  speler2Y = 694
-}
-
-if (speler2Y < 25) {
-  speler2Y = 25
-}
-
-  /* muren */
-if (speler2X > 1255) {
-  speler2X = 1255
-}
-  
-if (speler2X < 25) {
-  speler2X = 25
 
   // kogel
 };
@@ -109,18 +93,22 @@ var tekenAlles = function () {
   // achtergrond
    fill("blue")
   rect(0,0,1280,720)
+  // vijand
+
+  // kogel
+
+  // speler
+  fill("white");
+  rect(spelerX - 25, spelerY - 25, 50, 50);
+  fill("black");
+  ellipse(spelerX, spelerY, 10, 10);
+
   // speler2
-fill("yellow");
+   
+  fill("yellow");
   rect(speler2X - 25, speler2Y - 25, 50, 50);
   fill("black");
   ellipse(speler2X, speler2Y, 10, 10);
-  // kogel
-
-  // speler1
-  fill("white");
-  rect(speler1X - 25, speler1Y - 25, 50, 50);
-  fill("black");
-  ellipse(speler1X, speler1Y, 10, 10);
 
   // punten en health
 
@@ -174,4 +162,4 @@ function draw() {
 
   }
 }
- ws
+ 
