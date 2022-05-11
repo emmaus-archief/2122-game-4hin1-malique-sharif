@@ -50,7 +50,7 @@ var beweegAlles = function () {
       spelerX = spelerX + snelheid_speler
     }
 
-  /* grond/plafond */
+  /* grond/plafondss */
 if (spelerY > 694) {
   spelerY = 694
 }
@@ -68,7 +68,22 @@ if (spelerX < 25) {
   spelerX = 25
 }
   // vijand
+ if (speler2Y > 694) {
+  speler2Y = 694
+}
 
+if (speler2Y < 25) {
+  speler2Y = 25
+}
+
+  /* muren */
+if (speler2X > 1255) {
+  speler2X = 1255
+}
+  
+if (speler2X < 25) {
+  speler2X = 25
+};
   // kogel
 };
 
