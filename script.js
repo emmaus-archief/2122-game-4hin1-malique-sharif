@@ -17,8 +17,10 @@ const KEY_W = 87
 const KEY_A = 65
 const KEY_S = 83
 const KEY_D = 68
-const KEY_UP
-const 
+const ARROW_UP = 38
+const ARROW_LEFT = 37
+const ARROW_DOWN = 40
+const ARROW_RIGHT = 39
 var snelheid_speler = 10
 
 var spelerX = 600; // x-positie van speler
