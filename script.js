@@ -17,6 +17,8 @@ const KEY_W = 87
 const KEY_A = 65
 const KEY_S = 83
 const KEY_D = 68
+const KEY_UP
+const 
 var snelheid_speler = 10
 
 var spelerX = 600; // x-positie van speler
@@ -55,8 +57,8 @@ if (spelerY > 694) {
   spelerY = 694
 }
 
-if (spelerY < 25) {
-  spelerY = 25
+if (spelerY < 500) {
+  spelerY = 500
 }
 
   /* muren */
