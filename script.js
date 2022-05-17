@@ -54,6 +54,24 @@ var beweegAlles = function () {
       spelerX = spelerX + snelheid_speler
     }
 
+  //speler2
+    if (keyIsDown (ARROW_LEFT)) {
+      speler2X = speler2X - snelheid_speler
+    }
+
+    if (keyIsDown (ARROW_UP)) {
+      speler2Y = speler2Y - snelheid_speler
+    }
+
+    if (keyIsDown (ARROW_DOWN)) {
+      speler2Y = speler2Y + snelheid_speler
+    }
+  
+    if (keyIsDown (ARROW_RIGHT)) {
+      speler2X = speler2X + snelheid_speler
+    }
+  
+
   /* grond/plafondss */
 if (spelerY > 694) {
   spelerY = 694
