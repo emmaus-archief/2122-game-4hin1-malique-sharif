@@ -77,8 +77,8 @@ if (spelerY > 694) {
   spelerY = 694
 }
 
-if (spelerY < 500) {
-  spelerY = 500
+if (spelerY < 424) {
+  spelerY = 424
 }
 
   /* muren */
@@ -89,9 +89,9 @@ if (spelerX > 1255) {
 if (spelerX < 25) {
   spelerX = 25
 }
-  // vijand
- if (speler2Y > 694) {
-  speler2Y = 694
+  // speler2
+ if (speler2Y > 302) {
+  speler2Y = 302
 }
 
 if (speler2Y < 25) {
@@ -130,6 +130,8 @@ var tekenAlles = function () {
   // achtergrond
    fill("blue")
   rect(0,0,1280,720)
+  fill("black")
+  rect(0,325,1280,75)
   // vijand
 
   // kogel
