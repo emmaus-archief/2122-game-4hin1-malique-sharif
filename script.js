@@ -135,7 +135,10 @@ var tekenAlles = function () {
   // vijand
 
   // kogel
+   fill("white");
+  ellipse(spelerX -10 ,spelerY- 10 ,20,20)
 
+  
   // speler
   fill("white");
   rect(spelerX - 25, spelerY - 25, 50, 50);
