@@ -17,6 +17,7 @@ const KEY_W = 87
 const KEY_A = 65
 const KEY_S = 83
 const KEY_D = 68
+const KEY_SPATIE= 32
 const ARROW_UP = 38
 const ARROW_LEFT = 37
 const ARROW_DOWN = 40
@@ -25,7 +26,8 @@ var snelheid_speler = 10
 
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
-
+var kogel1X = spelerX
+var kogel1Y = spelerY
 var speler2X = 600;
 var speler2Y = 300;
 
@@ -52,7 +54,9 @@ var beweegAlles = function () {
   
     if (keyIsDown (KEY_D)) {
       spelerX = spelerX + snelheid_speler
-    }
+    } 
+    if (keyIsDown (KEY_SPATIE))
+    {KOGEL1X = spelerY - 10}
 
   //speler2
     if (keyIsDown (ARROW_LEFT)) {
@@ -134,9 +138,9 @@ var tekenAlles = function () {
   rect(0,325,1280,75)
   // vijand
 
-  // kogel
-   fill("white");
-  ellipse(spelerX -10 ,spelerY- 10 ,20,20)
+  // kogel1X
+   fill("black");
+  ellipse(spelerX -5 ,spelerY- 10 ,50,50)
 
   
   // speler
