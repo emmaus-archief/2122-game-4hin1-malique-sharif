@@ -26,7 +26,7 @@ var snelheid_speler = 10
 
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
-var kogel1X = spelerX
+var kogel1X = spelerX 
 var kogel1Y = spelerY
 var speler2X = 600;
 var speler2Y = 300;
@@ -56,7 +56,7 @@ var beweegAlles = function () {
       spelerX = spelerX + snelheid_speler
     } 
     if (keyIsDown (KEY_SPATIE))
-    {KOGEL1X = spelerY - 10}
+    {KOGEL1Y = spelerY - 5}
 
   //speler2
     if (keyIsDown (ARROW_LEFT)) {
@@ -111,6 +111,12 @@ if (speler2X < 25) {
   speler2X = 25
 };
   // kogel
+if (keyIsDown (32))
+  kogel1X = spelerX ;
+  kogel1Y = spelerY ;
+  
+    {kogel1Y = kogel1Y -5; } 
+
 };
 
 /**
@@ -140,7 +146,7 @@ var tekenAlles = function () {
 
   // kogel1X
    fill("black");
-  ellipse(spelerX -5 ,spelerY- 10 ,50,50)
+  ellipse(kogel1X -5 ,kogel1Y- 10 ,50,50)
 
   
   // speler
