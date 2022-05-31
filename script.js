@@ -77,7 +77,7 @@ var beweegAlles = function () {
   
 
   /* grond/plafondss */
-if (spelerY > 694) {
+/*if (spelerY > 694) {
   spelerY = 694
 }
 
@@ -171,6 +171,14 @@ var tekenAlles = function () {
  * anders return false
  */
 var checkGameOver = function () {
+   if (spelerX - speler2X < 50 &&
+         spelerX - speler2X > -50 &&
+         spelerY - speler2Y< 50 &&
+         spelerY - speler2Y > -50) {
+         aantal = aantal + 1;
+         console.log("SpelerTegenSpeler" + aantal);
+        return true;
+         }
   // check of HP 0 is , of tijd op is, of ...
   return false;
 };
@@ -206,12 +214,20 @@ function draw() {
     verwerkBotsing();
     tekenAlles();
     if (checkGameOver()) {
-      spelStatus = GAMEOVER;
-    }
-  }
-  if (spelStatus === GAMEOVER) {
+   if (spelStatus === GAMEOVER) {
     // teken game-over scherm
+    console.log("gameover");
+    textSize(50);
+    fill("white");
+    text("gameover druk f", 100, 100)
+         if (keyIsDown(70)) { //f
+           spelerX = 400
+    spelStatus = SPELEN;
+    }
+
+  }
+  if (spelStatus === UITLEG) {
+    // UITLEG SCHERM MOET NOG KOMEN
 
   }
 }
- 
