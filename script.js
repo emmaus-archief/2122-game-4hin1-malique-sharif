@@ -30,6 +30,9 @@ var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
 var kogel1X = 400;
 var kogel1Y = 300;
+var kogelvliegt = false;
+var d = 1
+
 var speler2X = 600;
 var speler2Y = 300;
 
@@ -115,14 +118,18 @@ if (speler2X < 25) {
   speler2X = 25
 };
   // kogel
-if (keyIsDown (32)) {
+if (kogelvliegt === false && keyIsDown (32)) {
+  kogelvliegt = true;
   kogel1X = spelerX ;
   kogel1Y = spelerY ;
-}
+}  if(kogelvliegt === true ){
     kogel1Y = kogel1Y -5; 
-
+}  
+  if(kogelvliegt === true && 
+      kogel1Y < 25 ) {
+    kogelvliegt = false ;
+      }
 };
-
 /**
  * Checkt botsingen
  * Verwijdert neergeschoten dingen
