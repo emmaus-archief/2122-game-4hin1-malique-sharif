@@ -24,6 +24,7 @@ const ARROW_LEFT = 37
 const ARROW_DOWN = 40
 const ARROW_RIGHT = 39
 var snelheid_speler = 10
+var aantal = 0
 
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
@@ -231,12 +232,17 @@ function draw() {
    if (spelStatus === GAMEOVER) {
     // teken game-over scherm
     console.log("gameover");
+      fill("black")
+  rect(0,0,1280,720)
     textSize(50);
     fill("white");
     text("gameover druk f", 100, 100)
          if (keyIsDown(70)) { //f
-           spelerX = 400
+           spelerX = 600
+           spelerY = 600
+        
     spelStatus = SPELEN;
+      tijd_resterend = 500;
     }
 
   }
