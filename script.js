@@ -12,6 +12,7 @@
 
 const SPELEN = 1;
 const GAMEOVER = 2;
+const UITLEG = 3;
 var spelStatus = SPELEN;
 const KEY_W = 87
 const KEY_A = 65
@@ -30,6 +31,8 @@ var kogel1X = 400;
 var kogel1Y = 300;
 var speler2X = 600;
 var speler2Y = 300;
+
+var tijd_resterend = 500;
 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
@@ -163,7 +166,9 @@ var tekenAlles = function () {
   ellipse(speler2X, speler2Y, 10, 10);
 
   // punten en health
-
+   textSize(50);
+  fill("white");
+  text("tijd over = " + tijd_resterend, 400, 50);
 };
 
 /**
@@ -171,6 +176,7 @@ var tekenAlles = function () {
  * anders return false
  */
 var checkGameOver = function () {
+   // gameover als spelers elkaar raken
    if (spelerX - speler2X < 50 &&
          spelerX - speler2X > -50 &&
          spelerY - speler2Y< 50 &&
@@ -179,6 +185,11 @@ var checkGameOver = function () {
          console.log("SpelerTegenSpeler" + aantal);
         return true;
          }
+  // gameover als tijd voorbij
+  if (tijd_resterend <= 0) {
+      return true;
+  }
+  tijd_resterend = tijd_resterend -1;
   // check of HP 0 is , of tijd op is, of ...
   return false;
 };
@@ -214,6 +225,9 @@ function draw() {
     verwerkBotsing();
     tekenAlles();
     if (checkGameOver()) {
+      spelStatus = GAMEOVER;
+    }
+  }
    if (spelStatus === GAMEOVER) {
     // teken game-over scherm
     console.log("gameover");
@@ -231,3 +245,4 @@ function draw() {
 
   }
 }
+  
