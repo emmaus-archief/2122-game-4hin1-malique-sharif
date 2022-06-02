@@ -174,9 +174,9 @@ var tekenAlles = function () {
   ellipse(speler2X, speler2Y, 10, 10);
 
   // punten en health
-   textSize(50);
+   textSize(35);
   fill("white");
-  text("tijd over = " + tijd_resterend, 400, 50);
+  text("Time left = " + tijd_resterend, 495, 35);
 };
 
 /**
@@ -243,7 +243,7 @@ function draw() {
   rect(0,0,1280,720)
     textSize(50);
     fill("white");
-    text("gameover druk f", 100, 100)
+    text("GAMEOVER, PRESS F", 100, 100)
          if (keyIsDown(70)) { //f
            spelerX = 600
            spelerY = 600
