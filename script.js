@@ -254,7 +254,7 @@ function draw() {
 
   }
   if (spelStatus === UITLEG) {
-    // UITLEG SCHERM MOET NOG KOMEN
+    // UITLEG SCHERM MOET NOG KOME
 
   }
 }
