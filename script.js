@@ -44,7 +44,7 @@ var tijd_resterend = 500;
 
 /**
  * Updatet globale variabelen met posities van speler, vijanden en kogels
- */S
+ */
 var beweegAlles = function () {
   // speler
     if (keyIsDown (KEY_A)) {
