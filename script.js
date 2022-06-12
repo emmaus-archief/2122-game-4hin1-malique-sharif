@@ -19,23 +19,30 @@ const KEY_A = 65
 const KEY_S = 83
 const KEY_D = 68
 const KEY_SPATIE= 32
+const KEY_R = 69
 const ARROW_UP = 38
 const ARROW_LEFT = 37
 const ARROW_DOWN = 40
 const ARROW_RIGHT = 39
 var snelheid_speler = 10
 var aantal = 0
+var points1= 0
+var points2= 0
 
 
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
+var speler2X = 600;
+var speler2Y = 300;
 var kogel1X = 400;
 var kogel1Y = 300;
 var kogelvliegt = false;
+var kogel2X = 200;
+var kogel2Y = 600;
+var kogelvliegt2 = false;
 var d = 1
 
-var speler2X = 600;
-var speler2Y = 300;
+
 
 var tijd_resterend = 500;
 
@@ -63,8 +70,7 @@ var beweegAlles = function () {
     if (keyIsDown (KEY_D)) {
       spelerX = spelerX + snelheid_speler
     } 
-    if (keyIsDown (KEY_SPATIE))
-    {KOGEL1Y = spelerY - 1}
+   
 
   //speler2
     if (keyIsDown (ARROW_LEFT)) {
@@ -120,6 +126,7 @@ if (speler2X < 25) {
 };
   // kogel
 if (kogelvliegt === false && keyIsDown (32)) {
+  console.log("speler1schiet");
   kogelvliegt = true;
   kogel1X = spelerX ;
   kogel1Y = spelerY ;
@@ -127,9 +134,24 @@ if (kogelvliegt === false && keyIsDown (32)) {
     kogel1Y = kogel1Y -5; 
 }  
   if(kogelvliegt === true && 
-      kogel1Y < 25 ) {
+      kogel1Y < -25 ) {
     kogelvliegt = false ;
       }
+
+ // kogel2
+if (kogelvliegt2 === false && keyIsDown (69)) {
+  console.log("speler2schiet");
+  kogelvliegt2 = true;
+  kogel2X = speler2X ;
+  kogel2Y = speler2Y ;
+}  if(kogelvliegt2 === true ){
+    kogel2Y = kogel2Y +5; 
+}  
+  if(kogelvliegt2 === true && 
+      kogel2Y > 750 ) {
+    kogelvliegt2 = false ;
+  }
+
 };
 /**
  * Checkt botsingen
@@ -139,7 +161,7 @@ if (kogelvliegt === false && keyIsDown (32)) {
 var verwerkBotsing = function () {
   // botsing speler tegen vijand
 
-  // botsing kogel tegen vijand
+  // botsing kogel tegen speler2
     if (kogel1X - speler2X < 50 &&
         kogel1X - speler2X >-50 &&
         kogel1Y - speler2Y < 50 &&
@@ -147,10 +169,25 @@ var verwerkBotsing = function () {
     {
     kogelvliegt = false;
       console.log("speler2geraakt")
-      kogel1Y = 400
+      kogel1Y = 2000
       speler2X = 600
       speler2Y = 300
+      points1 = points1 + 1;
     }
+  // botsing kogel2 tegen speler1
+   if (kogel2X - spelerX < 50 &&
+        kogel2X - spelerX >-50 &&
+        kogel2Y - spelerY < 50 &&
+       kogel2Y - spelerY >-50)
+    {
+    kogelvliegt = false;
+      console.log("speler1geraakt")
+      kogel2Y = 2000
+      speler2X = 600
+      speler2Y = 300
+      points2 = points2 + 1;
+    }
+  
   // update punten en health
 
 };
@@ -166,9 +203,13 @@ var tekenAlles = function () {
   rect(0,325,1280,75)
   // vijand
 
-  // kogel1X
+  // kogel1
    fill("red");
   ellipse(kogel1X -5 ,kogel1Y- 10 ,50,50)
+
+  // kogel2
+  fill("yellow");
+  ellipse(kogel2X +5 ,kogel2Y - 10 ,50,50)
 
   
   // speler
@@ -185,6 +226,14 @@ var tekenAlles = function () {
   ellipse(speler2X, speler2Y, 10, 10);
 
   // punten en health
+ fill("black");
+  textSize(50);
+  text("Player1: "+points1, 25,450);
+
+  fill("black");
+  textSize(50);
+  text("Player2: "+points2, 25,310);
+  
    textSize(35);
   fill("white");
   text("Time left = " + tijd_resterend, 495, 35);
