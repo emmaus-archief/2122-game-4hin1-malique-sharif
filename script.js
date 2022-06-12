@@ -26,6 +26,7 @@ const ARROW_RIGHT = 39
 var snelheid_speler = 10
 var aantal = 0
 
+
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
 var kogel1X = 400;
@@ -139,7 +140,17 @@ var verwerkBotsing = function () {
   // botsing speler tegen vijand
 
   // botsing kogel tegen vijand
-
+    if (kogel1X - speler2X < 50 &&
+        kogel1X - speler2X >-50 &&
+        kogel1Y - speler2Y < 50 &&
+       kogel1Y - speler2Y >-50)
+    {
+    kogelvliegt = false;
+      console.log("speler2geraakt")
+      kogel1Y = 400
+      speler2X = 600
+      speler2Y = 300
+    }
   // update punten en health
 
 };
