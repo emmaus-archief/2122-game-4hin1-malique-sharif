@@ -13,39 +13,42 @@
 const SPELEN = 1;
 const GAMEOVER = 2;
 const UITLEG = 3;
-var spelStatus = UITLEG;
-const KEY_W = 87
-const KEY_A = 65
-const KEY_S = 83
-const KEY_D = 68
-const KEY_SPATIE= 32
-const KEY_R = 69
-const ARROW_UP = 38
-const ARROW_LEFT = 37
-const ARROW_DOWN = 40
-const ARROW_RIGHT = 39
-var snelheid_speler = 10
-var aantal = 0
-var points1= 0
-var points2= 0
-var img;
+var spelStatus = UITLEG; // status waarmee de game begint
 
 
+const KEY_W = 87 // toets W
+const KEY_A = 65 // toets A 
+const KEY_S = 83 // toets S
+const KEY_D = 68 // toets D
+const KEY_SPATIE= 32 // toets Spatie
+const KEY_R = 69 // toets  R
+const ARROW_UP = 38 // pijl omhoog
+const ARROW_LEFT = 37 // pijl naar links
+const ARROW_DOWN = 40 // pijl naar beneden
+const ARROW_RIGHT = 39 // pijl naar rechts
+
+
+var snelheid_speler = 10 //snelheid van de spelers
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
-var speler2X = 600;
-var speler2Y = 900;
-var kogel1X = 2000;
-var kogel1Y = 2000;
+var speler2X = 600; // x-positie van speler2
+var speler2Y = 900; // y-positie van speler2
+
+
+var kogel1X = 2000; // waar de kogels in de map zijn.
+var kogel1Y = 2000; // waar de kogels in de map zijn.
 var kogelvliegt = false;
-var kogel2X = 2000;
-var kogel2Y = 2000;
+var kogel2X = 2000; // waar de kogels in de map zijn.
+var kogel2Y = 2000; // waar de kogels in de map zijn.
 var kogelvliegt2 = false;
-var d = 1
 
 
+var aantal = 0 // aantal keren dat consolelog af gaat
+var points1= 0 // punten van speler 1
+var points2= 0 // punten van speler 2
+var img;
+var tijd_resterend = 2000; // tijd waarmee de game begint
 
-var tijd_resterend = 2000;
 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
@@ -92,7 +95,7 @@ var beweegAlles = function () {
   
 
   /* grond/plafondss */
-/*if (spelerY > 694) {
+if (spelerY > 694) {
   spelerY = 694
 }
 
@@ -132,7 +135,7 @@ if (kogelvliegt === false && keyIsDown (69)) {
   kogel1X = spelerX ;
   kogel1Y = spelerY ;
 }  if(kogelvliegt === true ){
-    kogel1Y = kogel1Y -5; 
+    kogel1Y = kogel1Y -10; 
 }  
   if(kogelvliegt === true && 
       kogel1Y < -25 ) {
@@ -146,7 +149,7 @@ if (kogelvliegt2 === false && keyIsDown (13)) {
   kogel2X = speler2X ;
   kogel2Y = speler2Y ;
 }  if(kogelvliegt2 === true ){
-    kogel2Y = kogel2Y +5; 
+    kogel2Y = kogel2Y +10; 
 }  
   if(kogelvliegt2 === true && 
       kogel2Y > 750 ) {
@@ -160,8 +163,6 @@ if (kogelvliegt2 === false && keyIsDown (13)) {
  * Updatet globale variabelen punten en health
  */
 var verwerkBotsing = function () {
-  // botsing speler tegen vijand
-
   // botsing kogel tegen speler2
     if (kogel1X - speler2X < 50 &&
         kogel1X - speler2X >-50 &&
@@ -184,9 +185,6 @@ var verwerkBotsing = function () {
       kogel2Y = 2000
       points2 = points2 + 1;
     }
-  
-  // update punten en health
-     
 };
 
 /**
@@ -211,18 +209,15 @@ var tekenAlles = function () {
   // speler
   fill("red");
   rect(spelerX - 25, spelerY - 25, 50, 50);
-  fill("black");
-  ellipse(spelerX, spelerY, 10, 10);
+
 
   // speler2
-   
   fill("blue");
   rect(speler2X - 25, speler2Y - 25, 50, 50);
-  fill("black");
-  ellipse(speler2X, speler2Y, 10, 10);
 
-  // punten en health
- fill("black");
+
+  // punten
+  fill("black");
   textSize(50);
   text("Player1: "+points1, 25,450);
 
@@ -284,7 +279,7 @@ function setup() {
   createCanvas(1280, 720);
 
   // Kleur de achtergrond blauw, zodat je het kunt zien
-  background('blue');
+  background('white');
   rect(-10,290,1350,150)
   
   
