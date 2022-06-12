@@ -13,7 +13,7 @@
 const SPELEN = 1;
 const GAMEOVER = 2;
 const UITLEG = 3;
-var spelStatus = SPELEN;
+var spelStatus = UITLEG;
 const KEY_W = 87
 const KEY_A = 65
 const KEY_S = 83
@@ -28,12 +28,13 @@ var snelheid_speler = 10
 var aantal = 0
 var points1= 0
 var points2= 0
+var img;
 
 
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
 var speler2X = 600;
-var speler2Y = 300;
+var speler2Y = 900;
 var kogel1X = 2000;
 var kogel1Y = 2000;
 var kogelvliegt = false;
@@ -44,7 +45,7 @@ var d = 1
 
 
 
-var tijd_resterend = 2000;
+var tijd_resterend = 200;
 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
@@ -125,7 +126,7 @@ if (speler2X < 25) {
   speler2X = 25
 };
   // kogel
-if (kogelvliegt === false && keyIsDown (32)) {
+if (kogelvliegt === false && keyIsDown (69)) {
   console.log("speler1schiet");
   kogelvliegt = true;
   kogel1X = spelerX ;
@@ -139,7 +140,7 @@ if (kogelvliegt === false && keyIsDown (32)) {
       }
 
  // kogel2
-if (kogelvliegt2 === false && keyIsDown (69)) {
+if (kogelvliegt2 === false && keyIsDown (13)) {
   console.log("speler2schiet");
   kogelvliegt2 = true;
   kogel2X = speler2X ;
@@ -197,8 +198,7 @@ var tekenAlles = function () {
   rect(0,0,1280,720)
   fill("black")
   rect(0,325,1280,75)
-  // vijand
-
+  
   // kogel1
    fill("red");
   ellipse(kogel1X -5 ,kogel1Y- 10 ,50,50)
@@ -267,6 +267,18 @@ var checkGameOver = function () {
  * de code in deze functie wordt één keer uitgevoerd door
  * de p5 library, zodra het spel geladen is in de browser
  */
+
+function preload() {
+  img = loadImage('tijd.png');
+  img1 = loadImage('vs.png');
+  img2 = loadImage('pressspace.png')
+
+}
+/**
+ * setup
+ * de code in deze functie wordt één keer uitgevoerd door
+ * de p5 library, zodra het spel geladen is in de browser
+ */
 function setup() {
   // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
   createCanvas(1280, 720);
@@ -295,16 +307,19 @@ function draw() {
    if (spelStatus === GAMEOVER) {
     // teken game-over scherm
     console.log("gameover");
-      fill("black")
+      fill("white")
   rect(0,0,1280,720)
     textSize(50);
-    fill("white");
-    text("GAMEOVER, PRESS F", 100, 100)
+    fill("black");
+    text("PRESS F", 50, 350)
+    image(img, 0, 0);
          if (keyIsDown(70)) { //f
            spelerX = 600
            spelerY = 600
+           speler2X = 600
+           speler2Y = 900
         
-    spelStatus = SPELEN;
+    spelStatus = UITLEG;
       tijd_resterend = 2000;
       points1 = 0;
       points2 = 0;
@@ -312,7 +327,49 @@ function draw() {
 
   }
   if (spelStatus === UITLEG) {
-    // UITLEG SCHERM MOET NOG KOME
+    // UITLEG SCHERM
+      console.log("uitleg");
+      fill("white")
+  rect(0,0,1280,720)
+    image(img1, 0, 0,1280,720);
+    image(img2, 0, 0,900,75);
+    
+    // speler1uitleg
+    textSize(50);
+    fill("black");
+    text("Player1:", 0, 100,)
+    textSize(25);
+    fill("black");
+    text("Movement: W, A, S, D", 0, 125,)
+    textSize(25);
+    fill("black");
+    text("Shoot: E", 0, 150,)
+    
+    // speler2uitleg
+    textSize(50);
+    fill("black");
+    text("Player2:", 0, 205,)
+    textSize(25);
+    fill("black");
+    text("Movement: Arrow Up, Down, Left, Right", 0, 230,)
+    textSize(25);
+    fill("black");
+    text("Shoot: Enter", 0, 255,)
+    
+    
+       if (keyIsDown(32)) { // SPATIE
+    spelStatus = SPELEN;
+
+      spelerX = 600
+      spelerY = 600
+      speler2X = 600
+      speler2Y = 900   
+      kogel1X = 5000
+      kogel2X = 5000
+      tijd_resterend = 200;
+      points1 = 0;
+      points2 = 0;
+    }
 
   }
 }
