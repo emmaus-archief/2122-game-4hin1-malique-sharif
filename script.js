@@ -57,6 +57,8 @@ var tijd_resterend = 2000; // tijd waarmee de game begint
 /**
  * Updatet globale variabelen met posities van speler, vijanden en kogels
  */
+
+
 var beweegAlles = function () {
   // speler
     if (keyIsDown (KEY_A)) {
@@ -74,7 +76,7 @@ var beweegAlles = function () {
     if (keyIsDown (KEY_D)) {
       spelerX = spelerX + snelheid_speler
     } 
-   
+
 
   //speler2
     if (keyIsDown (ARROW_LEFT)) {
@@ -210,7 +212,6 @@ var tekenAlles = function () {
   fill("red");
   rect(spelerX - 25, spelerY - 25, 50, 50);
 
-
   // speler2
   fill("blue");
   rect(speler2X - 25, speler2Y - 25, 50, 50);
@@ -228,7 +229,9 @@ var tekenAlles = function () {
    textSize(35);
   fill("black");
   text("Time left = " + tijd_resterend, 495, 35);
+
 };
+
 
 /**
  * return true als het gameover is
@@ -243,8 +246,16 @@ var checkGameOver = function () {
          aantal = aantal + 1;
          console.log("SpelerTegenSpeler" + aantal);
         return true;
-         }
+         } 
+if (points1 >= 5){
+    snelheid_speler = snelheid_speler + 0.01 
+  } 
+
+  if (points2 >= 5){
+    snelheid_speler = snelheid_speler + 0.01 
+  } 
   // gameover als tijd voorbij
+  
   if (tijd_resterend <= 0) {
       return true;
   }
@@ -281,7 +292,6 @@ function setup() {
   // Kleur de achtergrond blauw, zodat je het kunt zien
   background('white');
   rect(-10,290,1350,150)
-  
   
 }
 
@@ -355,6 +365,7 @@ function draw() {
        if (keyIsDown(32)) { // SPATIE
     spelStatus = SPELEN;
 
+      snelheid_speler = 10  
       spelerX = 600
       spelerY = 600
       speler2X = 600
