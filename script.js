@@ -45,7 +45,7 @@ var d = 1
 
 
 
-var tijd_resterend = 200;
+var tijd_resterend = 2000;
 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
@@ -194,7 +194,7 @@ var verwerkBotsing = function () {
  */
 var tekenAlles = function () {
   // achtergrond
-   fill("blue")
+   fill("white")
   rect(0,0,1280,720)
   fill("black")
   rect(0,325,1280,75)
@@ -204,19 +204,19 @@ var tekenAlles = function () {
   ellipse(kogel1X -5 ,kogel1Y- 10 ,50,50)
 
   // kogel2
-  fill("yellow");
+  fill("blue");
   ellipse(kogel2X +5 ,kogel2Y - 10 ,50,50)
 
   
   // speler
-  fill("white");
+  fill("red");
   rect(spelerX - 25, spelerY - 25, 50, 50);
   fill("black");
   ellipse(spelerX, spelerY, 10, 10);
 
   // speler2
    
-  fill("yellow");
+  fill("blue");
   rect(speler2X - 25, speler2Y - 25, 50, 50);
   fill("black");
   ellipse(speler2X, speler2Y, 10, 10);
@@ -231,7 +231,7 @@ var tekenAlles = function () {
   text("Player2: "+points2, 25,310);
   
    textSize(35);
-  fill("white");
+  fill("black");
   text("Time left = " + tijd_resterend, 495, 35);
 };
 
@@ -366,7 +366,7 @@ function draw() {
       speler2Y = 900   
       kogel1X = 5000
       kogel2X = 5000
-      tijd_resterend = 200;
+      tijd_resterend = 2000;
       points1 = 0;
       points2 = 0;
     }
