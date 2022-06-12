@@ -34,17 +34,17 @@ var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
 var speler2X = 600;
 var speler2Y = 300;
-var kogel1X = 400;
-var kogel1Y = 300;
+var kogel1X = 2000;
+var kogel1Y = 2000;
 var kogelvliegt = false;
-var kogel2X = 200;
-var kogel2Y = 600;
+var kogel2X = 2000;
+var kogel2Y = 2000;
 var kogelvliegt2 = false;
 var d = 1
 
 
 
-var tijd_resterend = 500;
+var tijd_resterend = 2000;
 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
@@ -170,8 +170,6 @@ var verwerkBotsing = function () {
     kogelvliegt = false;
       console.log("speler2geraakt")
       kogel1Y = 2000
-      speler2X = 600
-      speler2Y = 300
       points1 = points1 + 1;
     }
   // botsing kogel2 tegen speler1
@@ -183,13 +181,11 @@ var verwerkBotsing = function () {
     kogelvliegt = false;
       console.log("speler1geraakt")
       kogel2Y = 2000
-      speler2X = 600
-      speler2Y = 300
       points2 = points2 + 1;
     }
   
   // update punten en health
-
+     
 };
 
 /**
@@ -309,7 +305,9 @@ function draw() {
            spelerY = 600
         
     spelStatus = SPELEN;
-      tijd_resterend = 500;
+      tijd_resterend = 2000;
+      points1 = 0;
+      points2 = 0;
     }
 
   }
